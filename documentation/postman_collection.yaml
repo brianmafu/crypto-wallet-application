@@ -1,0 +1,219 @@
+{
+  "info": {
+    "name": "Account and Auth API Collection",
+    "_postman_id": "f71f15be-22d3-4e59-a120-df12d32f6745",
+    "description": "Crypto Wallet Application API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth API",
+      "item": [
+        {
+          "name": "Sign up",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5001/auth/signup",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "auth",
+                "signup"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"user1\",\n  \"password\": \"mysecretpassword\"\n}"
+            },
+            "description": "Creates a new user account"
+          }
+        },
+        {
+          "name": "Sign in",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5001/auth/signin",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5001",
+              "path": [
+                "auth",
+                "signin"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"user1\",\n  \"password\": \"mysecretpassword\"\n}"
+            },
+            "description": "Logs in a user and returns a JWT token"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Account API",
+      "item": [
+        {
+          "name": "Get Account Balance",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer your-jwt-token"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5002/account/balance",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5002",
+              "path": [
+                "account",
+                "balance"
+              ]
+            },
+            "description": "Fetches the balance of the authenticated user's account"
+          }
+        },
+        {
+          "name": "Credit Account",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer your-jwt-token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5002/account/credit",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5002",
+              "path": [
+                "account",
+                "credit"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 100\n}"
+            },
+            "description": "Credits the specified amount to the authenticated user's account"
+          }
+        },
+        {
+          "name": "Debit Account",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer your-jwt-token"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5002/account/debit",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5002",
+              "path": [
+                "account",
+                "debit"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 50\n}"
+            },
+            "description": "Debits the specified amount from the authenticated user's account"
+          }
+        },
+        {
+          "name": "Create Account",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer your-jwt-token"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5002/account/create",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5002",
+              "path": [
+                "account",
+                "create"
+              ]
+            },
+            "description": "Creates a new account for the authenticated user"
+          }
+        },
+        {
+          "name": "Get Transaction History",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer your-jwt-token"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5002/account/transactions",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5002",
+              "path": [
+                "account",
+                "transactions"
+              ]
+            },
+            "description": "Fetches the transaction history for the authenticated user's account"
+          }
+        }
+      ]
+    }
+  ]
+}

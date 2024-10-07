@@ -1,0 +1,119 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "User Authentication API",
+    "version": "1.0.0",
+    "title": "Auth API"
+  },
+  "host": "localhost:5001",
+  "basePath": "/auth",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/signup": {
+      "post": {
+        "summary": "Sign up a new user",
+        "description": "Creates a new user account with username and password.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "User data for sign up",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserSignUp"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User signed up successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "User Signed Up successfully!"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/signin": {
+      "post": {
+        "summary": "Sign in a user",
+        "description": "Allows a user to log in with a username and password, and returns a JWT token.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "User login credentials",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserLogin"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful login, returns JWT token",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "token": {
+                  "type": "string",
+                  "example": "your-jwt-token"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid username or password"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "UserSignUp": {
+      "type": "object",
+      "required": [
+        "username",
+        "password"
+      ],
+      "properties": {
+        "username": {
+          "type": "string",
+          "example": "user1"
+        },
+        "password": {
+          "type": "string",
+          "example": "mysecretpassword"
+        }
+      }
+    },
+    "UserLogin": {
+      "type": "object",
+      "required": [
+        "username",
+        "password"
+      ],
+      "properties": {
+        "username": {
+          "type": "string",
+          "example": "user1"
+        },
+        "password": {
+          "type": "string",
+          "example": "mysecretpassword"
+        }
+      }
+    }
+  }
+}

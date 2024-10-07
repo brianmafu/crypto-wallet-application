@@ -1,0 +1,10 @@
+[MASTER]
+ignore=venv, migrations
+max-line-length=88
+disable=
+	E1101, # Instance of 'Class' has no 'member' member
+	R0903, # Too few public methods (0/2) (too-few-public-methods)
+	E0401, # Unable to import
+
+[FORMAT]
+max-line-length=88

@@ -1,0 +1,48 @@
+version: '3.8'
+services:
+  # Auth service
+  auth-service:
+    build:
+      context: ./services/authentication_service
+    ports:
+      - "5001:5001"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://postgres:password@db/auth_db
+      - FLASK_ENV=development
+      - FLASK_APP=services.authentication_service.app
+    command: >
+      sh -c "flask run --host=0.0.0.0 --port=5001"
+
+  # Account service
+  account-service:
+    build:
+      context: ./services/account_service
+    ports:
+      - "5002:5002"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://postgres:password@db/account_db
+      - FLASK_ENV=development
+      - FLASK_APP=services.account_service.app
+    command: >
+      sh -c "flask run --host=0.0.0.0 --port=5002"
+
+  # Postgres database
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d  # Contains your SQL scripts
+      - postgres-data:/var/lib/postgresql/data  # Data persistence
+
+volumes:
+  postgres-data:
