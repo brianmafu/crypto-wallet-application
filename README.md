@@ -1,6 +1,6 @@
 # Crypto Wallet Application
 ## Project Overview
- This project is a microservices-based application for managing user accounts and transactions. It consists of an authentication service and an account management service, both built using Flask and SQLAlchemy, and deployed with Docker.
+ This project is a microservices-based application for managing user accounts and transactions. It consists of an authentication service and account management service, both built using Flask and SQLAlchemy, and deployed with Docker. We have also included FE React Application
 ## Architecture
 ![architecture diagram](https://github.com/user-attachments/assets/7c5ffa17-80c4-43ff-9866-3fe7148fb2e0)
 
@@ -27,9 +27,10 @@
       - *Account Service*
           - Run 1: `make init-account`: Initializes the account service database.
           - Run 2:  `make  migrate-account` : Migrates the account service database.
-## Swagger Documentation and API Testing
+## API Services and Swagger Documentation
  - Auth Service Swagger URL: http://localhost:5001/swagger
  - Account Service Swagger URL: http://localhost:5002/swagger
+ - React FE Application: http://localhost:3000/
 ## Postman Collection:
     Link:	[Postman](https://github.com/brianmafu/crypto-wallet-application/blob/main/documentation/postman_collection.yaml)
 
