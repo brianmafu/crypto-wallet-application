@@ -2,6 +2,7 @@
 ## Project Overview
  This project is a microservices-based application for managing user accounts and transactions. It consists of an authentication service and an account management service, both built using Flask and SQLAlchemy, and deployed with Docker.
 ## Architecture
+![architecture diagram](https://github.com/user-attachments/assets/7c5ffa17-80c4-43ff-9866-3fe7148fb2e0)
 
 ## Project Setup
 - ### Prerequisites
