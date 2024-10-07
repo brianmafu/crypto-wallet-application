@@ -30,5 +30,5 @@
  - Auth Service Swagger URL: http://localhost:5001/swagger
  - Account Service Swagger URL: http://localhost:5002/swagger
 ## Postman Collection:
-    Link: 
+    Link: https://github.com/brianmafu/crypto-wallet-application/blob/main/documentation/postman_collection.yaml
 
